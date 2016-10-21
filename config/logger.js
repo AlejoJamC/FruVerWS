@@ -9,12 +9,16 @@
  * Module dependencies
  */
 
-// TODO: evitar error si la carpeta logs no existe, crear la carpeta por codigo
 var fs          = require('fs'),
     path        = require('path'),
     winston     = require('winston');
 
-// Paths to my logs files    filedebug   = path.join(__dirname,'..','logs','debug.log'),
+// Paths to my logs files
+var debugPath   = path.join(__dirname,'..','logs'),
+    errorPath   = path.join(__dirname,'..','logs'),
+    infoPath    = path.join(__dirname,'..','logs'),
+
+    filedebug   = path.join(__dirname,'..','logs','debug.log'),
     filerror    = path.join(__dirname,'..','logs','error.log'),
     fileinfo    = path.join(__dirname,'..','logs','info.log');
 
