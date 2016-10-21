@@ -8,6 +8,8 @@
 /**
  * Module dependencies
  */
+
+// TODO: evitar error si la carpeta logs no existe, crear la carpeta por codigo
 var fs          = require('fs'),
     path        = require('path'),
     winston     = require('winston');
