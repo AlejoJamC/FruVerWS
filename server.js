@@ -29,3 +29,9 @@ var express             = require('express'),
     //port                = config.port,
 
     mongoDB             = require('./config/mongodb');
+
+// MongoDB connection
+mongoDB.SetupMongoDB(config.MongoUri, config.MongoDB);
+
+// Express app instance
+var app = express();
