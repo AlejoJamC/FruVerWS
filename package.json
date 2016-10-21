@@ -1,0 +1,46 @@
+{
+  "name": "fruver",
+  "version": "0.1.0",
+  "description": "FruVer Back-end ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://alejojamc@github.com/AlejoJamC/FruVerWS.git"
+  },
+  "keywords": [
+    "webservice",
+    "web",
+    "service",
+    "node.js",
+    "express.js",
+    "javascript"
+  ],
+  "author": "@AlejoJamC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlejoJamC/FruVerWS/issues"
+  },
+  "homepage": "https://github.com/AlejoJamC/FruVerWS#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.13.4",
+    "express-session": "^1.14.0",
+    "jade": "^1.11.0",
+    "method-override": "^2.3.6",
+    "moment": "^2.14.1",
+    "mongoose": "^4.5.0",
+    "morgan": "^1.7.0",
+    "oauth2orize": "^1.4.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "passport-http-bearer": "^1.0.1",
+    "passport-local": "^1.0.0",
+    "request": "^2.74.0",
+    "serve-favicon": "^2.3.0",
+    "winston": "^2.2.0"
+  }
+}
