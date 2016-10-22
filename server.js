@@ -19,21 +19,19 @@ var express             = require('express'),
     session             = require('express-session'),
     passport            = require('passport'),
 
-    logger              = require('./config/logger').Logger,
+    logger              = require('./lib/logger').Logger,
     morgan              = require('morgan'),
 
     routes              = require('./routes/routes'),
 
-    environment         = 'devLocal',
-    //config              = require('./config/environment.json')[environment],
-    //port                = config.port,
+    mongoDB             = require('./lib/mongodb');
 
-    mongoDB             = require('./config/mongodb');
-
-logger.info('Enviroment: ' + environment);
+// Environment file
+require('dotenv').config();
+var port = process.env.PORT
 
 // MongoDB connection
-mongoDB.SetupMongoDB(config.MongoUri, config.MongoDB);
+mongoDB.SetupMongoDB(process.env.MONGO_URI, process.env.MONGODB);
 
 // Express app instance
 var app = express();
@@ -58,9 +56,9 @@ app.use(morgan('dev'));
 app.use(methodOverride());
 
 // Set Header 'X-Prowered-By'
-logger.info('Uparki.com - El poder de compartir | API');
+logger.info('AlejoJamC - FruVer App | API');
 app.use(function (req, res, next) {
-    res.set('X-Powered-By', 'Uparki.com - El poder de compartir');
+    res.set('X-Powered-By', '@AlejoJamC');
     next();
 });
 
@@ -86,7 +84,6 @@ app.use(passport.initialize());
 // Local variables.
 // Current year.
 app.locals.currentYear = moment().year();
-global.ENVIRONMENT = environment;
 
 // Path to our public directory
 app.use(express.static(__dirname + '/public'));
@@ -101,8 +98,8 @@ routes.SetupRouter(router);
 // Register all our routes with a prefix: /api or /v1
 // This poject is created to be hosted in a subdomain dedicated to authentication and authorization
 // Example of an URL with the prefix: auth.happyauth.com/v0
-app.use(config.version, router);
+app.use(process.env.VERSION, router);
 
 // Start the server
 app.listen(port);
-logger.info('API running on http://localhost:' + port + config.version + '/');
+logger.info('API running on http://localhost:' + port + process.env.VERSION + '/');
