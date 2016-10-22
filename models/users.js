@@ -12,7 +12,7 @@
 var mongoose    = require('mongoose');
 
 var bcrypt      = require('bcrypt-nodejs');
-var logger      = require('../config/logger').Logger;
+var logger      = require('../lib/logger').Logger;
 var UserType    = require('./userTypes').UserType;
 
 /**
